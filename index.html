@@ -3,41 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="炫酷的 Agent 驱动个人主页。" />
-    <title>Rover95 · Agent Enhanced Portfolio</title>
+    <meta name="description" content="一个由对话驱动实时进化的个人主页。" />
+    <title>Live Agent Portfolio Demo</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="glow glow-a" aria-hidden="true"></div>
-    <div class="glow glow-b" aria-hidden="true"></div>
-
-    <main class="shell" id="pageRoot" data-stage="0">
-      <section class="hero card">
-        <p class="eyebrow">AI NATIVE FRONTEND ENGINEER</p>
-        <h1 id="heroTitle">正在初始化个人宇宙...</h1>
-        <p id="heroDesc">当前仅保留基础结构，等待 agent 自动扩建站点能力。</p>
-        <div class="cta-row">
-          <a class="btn primary" href="#projects">查看项目</a>
-          <a class="btn ghost" href="#workflow">查看流程</a>
-        </div>
-        <div class="chip-list" id="tagList"></div>
+    <main class="page" id="pageRoot" data-stage="0">
+      <section class="profile" id="profileCard">
+        <p class="label">stage 0 · minimal</p>
+        <h1 id="heroTitle">一个普通的个人主页</h1>
+        <p id="heroDesc">内容很少，等待 agent 帮我逐步完善。</p>
+        <div class="tags" id="tagList"></div>
       </section>
 
-      <section class="metrics" id="metrics"></section>
-
-      <section class="panel-grid">
-        <article class="card" id="projects">
-          <p class="eyebrow">PROJECTS</p>
-          <h2>项目星图</h2>
-          <div class="block-list" id="projectList"></div>
-        </article>
-        <article class="card" id="workflow">
-          <p class="eyebrow">WORKFLOW</p>
-          <h2>Agent 协作链路</h2>
-          <div class="timeline" id="workflowList"></div>
-        </article>
+      <section class="chat-shell">
+        <header>
+          <h2>Agent 对话框（自动演示）</h2>
+          <p>对话会驱动当前页面实时变化</p>
+        </header>
+        <div class="chat-log" id="chatLog" aria-live="polite"></div>
       </section>
+
+      <section class="blocks" id="liveBlocks"></section>
     </main>
 
     <aside class="agent-window" aria-label="agent console">

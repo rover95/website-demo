@@ -1,77 +1,57 @@
 :root {
-  --bg: #040914;
-  --panel: rgba(15, 22, 42, 0.68);
-  --panel-strong: rgba(13, 19, 36, 0.92);
-  --line: rgba(255, 255, 255, 0.14);
-  --text: #f5f8ff;
-  --muted: #9eb1d4;
-  --accent: #5ee8ff;
-  --accent-2: #a78bfa;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1a2130;
+  --muted: #67748a;
+  --line: #d9e0ea;
+  --accent: #377dff;
 }
+
 * { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle at 15% 10%, #15306b 0%, transparent 30%),
-    radial-gradient(circle at 85% 15%, #46177a 0%, transparent 28%),
-    linear-gradient(135deg, #02050d, #070f22 45%, #05040f);
-  min-height: 100vh;
-}
-.bg-grid,.glow { position: fixed; inset: 0; pointer-events: none; }
-.bg-grid { background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
-.glow { filter: blur(50px); opacity: .35; }
-.glow-a { background: #1bd7ff; transform: translate(-25%, -20%); }
-.glow-b { background: #b156ff; transform: translate(70%, 10%); }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); }
 
-.shell { width: min(1200px, calc(100% - 2rem)); margin: 2rem auto 3rem; display: grid; gap: 1rem; }
-.card { background: linear-gradient(140deg, rgba(255,255,255,.10), rgba(255,255,255,.03)); border: 1px solid var(--line); border-radius: 18px; padding: 1.2rem; backdrop-filter: blur(12px); box-shadow: 0 20px 55px rgba(0,0,0,.4); }
-.eyebrow { margin: 0; color: var(--accent); letter-spacing: .15em; font-size: .76rem; font-weight: 700; }
-h1 { margin: .5rem 0 .8rem; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.02; }
-h2 { margin: .4rem 0 1rem; font-size: clamp(1.4rem, 3vw, 2.2rem); }
-#heroDesc { margin: 0; color: var(--muted); max-width: 740px; }
-.cta-row { margin: 1.2rem 0; display: flex; gap: .7rem; }
-.btn { padding: .6rem 1rem; border-radius: 999px; font-weight: 700; text-decoration: none; }
-.btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #061028; }
-.btn.ghost { border: 1px solid var(--line); color: var(--text); }
-.chip-list,.metrics { display: grid; gap: .65rem; }
-.chip-list { grid-template-columns: repeat(auto-fit, minmax(140px, max-content)); }
-.chip { padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: #d9e5ff; background: rgba(255,255,255,.05); font-size: .86rem; }
-.metrics { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-.metric { padding: .95rem; border: 1px solid var(--line); border-radius: 14px; background: rgba(0,0,0,.18); }
-.metric strong { display: block; font-size: 1.25rem; }
-.metric span { color: var(--muted); font-size: .85rem; }
-.panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.block-list,.timeline { display: grid; gap: .6rem; }
-.block,.step { padding: .8rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.04); }
-.block p,.step p { margin: .3rem 0 0; color: var(--muted); }
-
-.agent-window {
-  position: fixed;
-  top: 1.2rem;
-  right: 1rem;
-  width: min(400px, calc(100vw - 2rem));
-  max-height: 78vh;
+.page {
+  width: min(980px, calc(100% - 2rem));
+  margin: 2rem auto;
   display: grid;
-  grid-template-rows: auto 1fr;
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 14px;
-  background: var(--panel-strong);
-  box-shadow: 0 24px 60px rgba(0,0,0,.48);
-  overflow: hidden;
-  z-index: 20;
+  gap: 1rem;
+  transition: 500ms ease;
 }
-.window-header { display: flex; align-items: center; justify-content: space-between; padding: .65rem .8rem; border-bottom: 1px solid var(--line); }
-.dot { width: 10px; height: 10px; border-radius: 999px; background: #38ff8f; box-shadow: 0 0 12px #38ff8f; }
-.chat-log { overflow: auto; padding: .7rem; display: grid; gap: .6rem; }
-.msg { border-radius: 10px; padding: .5rem .65rem; border: 1px solid var(--line); background: var(--panel); }
-.msg.user { border-left: 3px solid #74f0ff; }
-.msg.agent { border-left: 3px solid #a78bfa; }
-.msg .type { font-size: .72rem; color: var(--muted); margin-bottom: .2rem; }
-.msg .cmd { display: block; margin-top: .4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #84ffd4; font-size: .78rem; }
-.msg .think { display: block; margin-top: .35rem; color: #ffd98a; font-size: .78rem; }
 
-@media (max-width: 980px) {
-  .panel-grid { grid-template-columns: 1fr; }
-  .agent-window { position: sticky; top: .5rem; margin: 0 auto 1rem; right: auto; width: min(680px, calc(100% - 1rem)); }
+.profile, .chat-shell, .blocks article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
 }
+
+.label { color: var(--muted); font-size: .86rem; margin: 0 0 .3rem; }
+h1 { margin: 0; font-size: 1.5rem; }
+#heroDesc { color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tags span { font-size: .82rem; padding: .3rem .56rem; border: 1px solid var(--line); border-radius: 999px; }
+
+.chat-shell header h2 { margin: 0; font-size: 1.06rem; }
+.chat-shell header p { margin: .2rem 0 .8rem; color: var(--muted); font-size: .9rem; }
+.chat-log { display: grid; gap: .65rem; max-height: 340px; overflow: auto; }
+
+.msg { width: fit-content; max-width: 84%; padding: .55rem .72rem; border-radius: 10px; line-height: 1.45; }
+.msg.user { justify-self: end; background: #e8efff; }
+.msg.agent { background: #f2f4f8; }
+
+.blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .8rem; }
+.blocks h3 { margin: 0 0 .4rem; }
+.blocks p { margin: 0; color: var(--muted); }
+
+.page[data-stage='3'] {
+  --bg: #0a1020;
+  --card: rgba(17, 24, 39, 0.78);
+  --text: #f2f7ff;
+  --muted: #a5b5d1;
+  --line: rgba(255,255,255,.15);
+  --accent: #6ee7ff;
+}
+
+.page[data-stage='3'] .profile,
+.page[data-stage='3'] .chat-shell,
+.page[data-stage='3'] .blocks article { backdrop-filter: blur(8px); }
