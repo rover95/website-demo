@@ -3,137 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="rover95 的 AI Native 前端工程师个人主页。" />
-    <title>Rover95 · AI Native Frontend Engineer</title>
+    <meta name="description" content="一个由对话驱动实时进化的个人主页。" />
+    <title>Live Agent Portfolio Demo</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="orb orb-a" aria-hidden="true"></div>
-    <div class="orb orb-b" aria-hidden="true"></div>
-
-    <main id="app">
-      <section class="hero section-shell">
-        <nav class="nav glass-card">
-          <a class="brand" href="#app" aria-label="Rover95 home">
-            <span class="brand-mark">R95</span>
-            <span>rover95.dev</span>
-          </a>
-          <div class="nav-links">
-            <a href="#stack">Stack</a>
-            <a href="#projects">Projects</a>
-            <a href="#workflow">Workflow</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
-
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">AI-NATIVE FRONTEND · PRODUCT ENGINEERING · AUTOMATION</p>
-            <h1>把前端工程、AI Agent 和产品交付揉成一套高效率系统。</h1>
-            <p class="hero-desc">
-              我是一名前端开发者，熟悉 Vue、Vite、工程化、监控、微前端和 AI 辅助研发。这个主页记录我正在构建的方向：更快交付、更稳上线、更聪明地使用 AI 工具领先一步。
-            </p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#projects">查看项目宇宙</a>
-              <a class="btn ghost" href="#workflow">我的 AI 工作流</a>
-            </div>
-            <div class="stats">
-              <div><strong>Vue / Vite</strong><span>主战技术栈</span></div>
-              <div><strong>AI Agent</strong><span>Codex / Claude / 自动化</span></div>
-              <div><strong>Perf & CI</strong><span>构建、监控、性能排查</span></div>
-            </div>
-          </div>
-
-          <aside class="hero-panel glass-card reveal" aria-label="system terminal">
-            <div class="terminal-top"><span></span><span></span><span></span></div>
-            <pre id="terminal"></pre>
-            <div class="radar">
-              <span></span><span></span><span></span>
-              <p>LIVE SYSTEM MINDSET</p>
-            </div>
-          </aside>
-        </div>
+    <main class="page" id="pageRoot" data-stage="0">
+      <section class="profile" id="profileCard">
+        <p class="label">stage 0 · minimal</p>
+        <h1 id="heroTitle">一个普通的个人主页</h1>
+        <p id="heroDesc">内容很少，等待 agent 帮我逐步完善。</p>
+        <div class="tags" id="tagList"></div>
       </section>
 
-      <section id="stack" class="section-shell split-section">
-        <div class="section-title reveal">
-          <p class="eyebrow">TECH DNA</p>
-          <h2>工程能力不是堆框架，而是稳定解决复杂问题。</h2>
-        </div>
-        <div class="cards-grid">
-          <article class="glass-card feature-card reveal">
-            <span class="icon">⚡</span>
-            <h3>前端工程化</h3>
-            <p>围绕 Vite、pnpm、monorepo、构建产物、依赖冲突和 CI 稳定性持续优化。</p>
-          </article>
-          <article class="glass-card feature-card reveal">
-            <span class="icon">🧠</span>
-            <h3>AI 驱动研发</h3>
-            <p>把 Codex、Claude、CR Prompt、自动日报和代码审查沉淀为可复用流程。</p>
-          </article>
-          <article class="glass-card feature-card reveal">
-            <span class="icon">🛰️</span>
-            <h3>复杂问题排查</h3>
-            <p>定位 CORS、WebGL、iframe、BroadcastChannel、构建失败和网络代理链路问题。</p>
-          </article>
-          <article class="glass-card feature-card reveal">
-            <span class="icon">🎨</span>
-            <h3>视觉与交互实验</h3>
-            <p>关注像素风、动效、个人网站、AI 图像生成和具有辨识度的数字表达。</p>
-          </article>
-        </div>
+      <section class="chat-shell">
+        <header>
+          <h2>Agent 对话框（自动演示）</h2>
+          <p>对话会驱动当前页面实时变化</p>
+        </header>
+        <div class="chat-log" id="chatLog" aria-live="polite"></div>
       </section>
 
-      <section id="projects" class="section-shell">
-        <div class="section-heading reveal">
-          <p class="eyebrow">PROJECT CONSTELLATION</p>
-          <h2>过往关注领域</h2>
-        </div>
-        <div class="project-map">
-          <article class="project-node glass-card large reveal">
-            <span>01</span>
-            <h3>图纸域与 CAD 体验</h3>
-            <p>图纸差异对比、截图噪点处理、CAD 接入、H5 图纸页面重构、离线缓存与工程体验优化。</p>
-          </article>
-          <article class="project-node glass-card reveal">
-            <span>02</span>
-            <h3>监控与性能</h3>
-            <p>Tingyun 接入、长任务分析、Major GC、Vite 构建异常、运行时稳定性。</p>
-          </article>
-          <article class="project-node glass-card reveal">
-            <span>03</span>
-            <h3>微前端与多端协作</h3>
-            <p>iframe、新窗口、跨域通信、子应用加载、窗口隔离和工程边界治理。</p>
-          </article>
-          <article class="project-node glass-card reveal">
-            <span>04</span>
-            <h3>AI 自动化系统</h3>
-            <p>代码审查、日报生成、风险变更识别、Prompt 模板和 Agent 协作机制。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="workflow" class="section-shell timeline-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">OPERATING SYSTEM</p>
-          <h2>我的工作方式</h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item reveal"><span></span><h3>先定义边界</h3><p>明确需求、风险、接口、验收口径，避免后期返工。</p></div>
-          <div class="timeline-item reveal"><span></span><h3>再做工程拆解</h3><p>把复杂功能切成可验证的小闭环，用脚本和工具降低重复劳动。</p></div>
-          <div class="timeline-item reveal"><span></span><h3>用 AI 放大效率</h3><p>让 AI 负责初稿、排查、CR、文档和自动化，人负责判断与最终质量。</p></div>
-          <div class="timeline-item reveal"><span></span><h3>最后沉淀模板</h3><p>把一次性经验变成可复用 Prompt、检查清单和工程规范。</p></div>
-        </div>
-      </section>
-
-      <section id="contact" class="section-shell contact glass-card reveal">
-        <p class="eyebrow">NEXT MISSION</p>
-        <h2>继续把个人能力产品化。</h2>
-        <p>这个站点可以继续扩展为博客、项目展示、AI 工具导航、摄影作品集、像素游戏实验室或自动化日报面板。</p>
-        <a class="btn primary" href="https://github.com/rover95/website-demo" target="_blank" rel="noreferrer">View GitHub Repository</a>
-      </section>
+      <section class="blocks" id="liveBlocks"></section>
     </main>
 
     <script type="module" src="/src/main.js"></script>
